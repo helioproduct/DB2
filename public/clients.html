@@ -1,0 +1,44 @@
+{{ define "data" }}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/position.css">
+  <link rel="stylesheet" href="/styles/table.css">
+  <title>Hotel Administration</title>
+</head>
+
+<body>
+<h1>Список гостей отеля</h1>
+</div>
+<div class="tables">
+  <h2>Список гостей</h2>
+  <table>
+    <th>ID</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Телефон</th>
+    <th>Почта</th>
+    <th>Пол</th>
+
+    {{ range .Clients }}
+    <tr>
+      <td>{{ .ClientID }}</td>
+      <td>{{ .ClientFirstName }}</td>
+      <td>{{ .ClientLastName }}</td>
+      <td>{{ .ClientPhone}}</td>
+      <td>{{ .ClientEmail }}</td>
+      <td>{{ .ClientGender}}</td>
+    </tr>
+    {{ end }}
+  </table>
+ 
+</div>
+
+</body>
+
+</html>
+{{ end }}

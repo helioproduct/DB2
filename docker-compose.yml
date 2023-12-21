@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  hhhttteel-app:
+    build: ./
+    command: ./hhhttteel-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - hotel-db
+
+  hotel-db:
+    build:
+      context: .
+      dockerfile: Dockerfile.hotel-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"

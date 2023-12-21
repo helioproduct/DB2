@@ -1,0 +1,60 @@
+{{ define "data" }}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" href="/main.css">
+  <link rel="stylesheet" href="/position.css">
+  <link rel="stylesheet" href="/table.css"> -->
+  <title>Hotel Administration</title>
+</head>
+
+<body>
+<h1>Комнаты отеля</h1>
+</div>
+<div class="tables">
+  <h2>Список комнат</h2>
+  <table>
+    <th>ID</th>
+    <th>Категория</th>
+    <th>Номер комнаты</th>
+    <th>Вместимость номера</th>
+
+    {{ range .Rooms }}
+    <tr>
+      <td>{{ .RoomID }}</td>
+      <td>{{ .RoomCategoryID }}</td>
+      <td>{{ .RoomNumber }}</td>
+      <td>{{ .RoomMaxGuests}}</td>
+    </tr>
+    {{ end }}
+  </table>
+ 
+</div>
+
+<div class="tables">
+    <h2>Категории комнат</h2>
+    <table>
+      <th>ID</th>
+      <th>Название</th>
+      <th>Описание</th>
+      <th>Стоимость</th>
+  
+      {{ range .RoomsCategories }}
+      <tr>
+        <td>{{ .RoomCategoryID }}</td>
+        <td>{{ .RoomCategoryName }}</td>
+        <td>{{ .RoomCategoryDescription }}</td>
+        <td>{{ .RoomCategoryBasePrice}}</td>
+      </tr>
+      {{ end }}
+    </table>
+   
+  </div>
+
+</body>
+
+</html>
+{{ end }}

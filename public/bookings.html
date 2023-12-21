@@ -1,0 +1,150 @@
+{{ define "data" }}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/position.css">
+  <link rel="stylesheet" href="/styles/table.css">
+  <title>Hotel Administration</title>
+</head>
+
+<body>
+<h1>Управление бронированиями</h1>
+<div class="forms">
+  <h2>Добавление бронирования</h2>
+  <form action="http://localhost:8080/booking/insert" method="post">
+
+    <div class="singleform">
+      <label>Фамилия гостя</label>
+      <br>
+      <input type="text"
+             name="insert_second_name"
+             class="input_field"
+             maxlength="50">
+    </div>
+
+    <div class="singleform">
+      <label>Имя гостя</label>
+      <br>
+      <input type="text"
+             name="insert_name"
+             class="input_field"
+             maxlength="50">
+    </div>
+
+    <div class="singleform">
+      <label>Телефон гостя</label>
+      <br>
+      <input type="text"
+             name="insert_phone"
+             class="input_field"
+             maxlength="50">
+    </div>
+
+    <div class="singleform">
+        <label>Почта гостя</label>
+        <br>
+        <input type="text"
+               name="insert_email"
+               class="input_field"
+               maxlength="50">
+      </div>
+
+    <div class="singleform">
+        <label>Пол</label>
+        <br>
+        <input type="radio"
+               name="insert_sex"
+               value="мужской">
+        <label>мужской</label>
+  
+        <input type="radio"
+               name="insert_sex"
+               value="женский">
+        <label>женский</label>
+  
+        <input type="radio"
+               name="insert_sex"
+               value="другой">
+        <label>другой</label>
+      </div>
+
+    <div class="singleform">
+      <label>Номер комнаты</label>
+      <br>
+      <input type="text"
+             class="input_field"
+             name="insert_room_number">
+    </div>
+
+    <div class="singleform">
+      <label>Дата заселения</label>
+      <br>
+      <input type="date"
+             class="input_field"
+             name="insert_check_in_date">
+    </div>
+
+    <div class="singleform">
+      <label>Дата выселения</label>
+      <br>
+      <input type="date"
+             class="input_field"
+             name="insert_check_out_date">
+    </div>
+        
+    <input type="submit"
+           class="submit"
+           value="Добавить">
+
+  </form>
+
+  <h2>Удалить бронирование</h2>
+  <form action="http://localhost:8080/booking/delete" method="post">
+
+    <div class="singleform">
+      <label>ID бронирования:</label>
+        <br>
+      <input type="number"
+             class="input_field"
+             name="delete_id">
+    </div>
+
+    <input type="submit"
+           class="submit_delete"
+           value="Удалить">
+
+  </form>
+</div>
+<div class="tables">
+  <h2>Список бронирований</h2>
+  <table>
+    <th>ID</th>
+    <th>Фамилия гостя</th>
+    <th>Имя гостя</th>
+    <th>Номер комнаты</th>
+    <th>Дата заселения</th>
+    <th>Дата выселения</th>
+    <th>Цена</th>
+    {{ range .Bookings }}
+    <tr>
+      <td>{{ .BookingID }}</td>
+      <td>{{ .ClientLastName }}</td>
+      <td>{{ .ClientFirstName }}</td>
+      <td>{{ .RoomNumber }}</td>
+      <td>{{ .CheckInDate }}</td>
+      <td>{{ .CheckOutDate }}</td>
+      <td>{{ .TotalPrice }}</td>
+    </tr>
+    {{ end }}
+  </table>
+ 
+</div>
+
+</body>
+
+</html>
+{{ end }}

@@ -1,0 +1,5 @@
+# Use the official PostgreSQL image as a parent image
+FROM postgres
+
+# Copy the database initialize script into the docker-entrypoint-initdb.d directory
+COPY db_init.sql /docker-entrypoint-initdb.d/db_init.sql
