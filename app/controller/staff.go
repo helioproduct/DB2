@@ -3,7 +3,6 @@ package controller
 import (
 	"cp/app/model"
 	"cp/app/server"
-	"fmt"
 	"html/template"
 	"net/http"
 	"path/filepath"
@@ -32,8 +31,6 @@ func SelectStaff(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 }
 
 func InsertStaff(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
-	fmt.Println("hello from insert staff")
-
 	var newStaff model.Staff
 	newStaff.StaffLastName = r.FormValue("insert_second_name")
 	newStaff.StaffFirstName = r.FormValue("insert_name")
