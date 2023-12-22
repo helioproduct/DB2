@@ -6,6 +6,6 @@ WORKDIR .
 COPY . .
 
 RUN go mod download
-RUN go build -o hhhttteel-app main.go
+RUN go build -o httteell-app main.go
 
-CMD ["./hhhttteel-app" >> output]
+CMD ["./httteell-app"]

@@ -87,3 +87,21 @@ func GetPriceForRoomCategory(room_category int) (float64, error) {
 	}
 	return price, nil
 }
+
+func UpdateCategory(id int, category int, number int) error {
+	_, err := db.Exec(`
+	 UPDATE rooms
+	 SET category_id = $1, number = $2
+	 WHERE id = $3`,
+	 category, number, id)
+	return err
+}
+
+   func UpdatePrice(id int, price float64) error {
+	_, err := db.Exec(`
+	 UPDATE room_categories
+	 SET base_price = $1
+	 WHERE id = $2`,
+	 price, id)
+	return err
+}

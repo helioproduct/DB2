@@ -14,6 +14,55 @@
 <body>
 <h1>Комнаты отеля</h1>
 </div>
+<h2>Изменить категорию номера</h2>
+<form action="http://localhost:8080/rooms/update/category" method="post">
+  <div class="singleform">
+    <label>ID комнаты</label>
+    <br>
+    <input type="number"
+           class="input_field"
+           name="update_room_id">
+  </div>
+  <div class="singleform">
+    <label>ID новой категории</label>
+    <br>
+    <input type="number"
+           class="input_field"
+           name="update_room_category_id">
+  </div>
+  <div class="singleform">
+    <label>Новый номер</label>
+    <br>
+    <input type="number"
+           class="input_field"
+           name="update_room_number">
+  </div>
+  <input type="submit"
+         class="submit"
+         calue="Подтвердить">
+</form>
+
+<h2>Изменить цену за ночь</h2>
+<form action="http://localhost:8080/rooms/update/price" method="post">
+  <div class="singleform">
+    <label>ID категории</label>
+    <br>
+    <input type="number"
+           class="input_field"
+           name="update_price_category_id">
+  </div>
+  <div class="singleform">
+    <label>Новая цена за ночь</label>
+    <br>
+    <input type="number"
+           class="input_field"
+           name="update_price">
+  </div>
+  <input type="submit"
+         class="submit"
+         calue="Подтвердить">
+</form>
+
 <div class="tables">
   <h2>Список комнат</h2>
   <table>

@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  hhhttteel-app:
+  httteell-app:
     build: ./
-    command: ./hhhttteel-app
+    command: ./httteell-app
     ports:
       - "8080:8080"
     depends_on:

@@ -29,6 +29,8 @@ func Routes(r *httprouter.Router) {
 	r.POST("/booking/delete", controller.DeleteBooking)
 	
 	r.GET("/rooms", controller.SelectRooms)
+	r.POST("/rooms/update/category", controller.UpdateCategory)
+	r.POST("/rooms/update/price", controller.UpdatePrice)
 	
 	r.GET("/clients", controller.SelectClients)
 
